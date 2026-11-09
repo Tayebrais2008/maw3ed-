@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f5">
+  <title>randevous tayeb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=doctor-gate-20261109">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="موعد، الصفحة الرئيسية"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5v22M5 16h22"/><circle cx="16" cy="16" r="13"/></svg></span><span>موعد<span class="brand-dot">.</span></span></a>
+      <nav class="main-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link active" href="#home" data-view="home">الرئيسية</a>
+        <a class="nav-link" href="#doctors" data-view="doctors">الأطباء</a>
+        <a class="nav-link" href="#appointments" data-view="appointments">الطلبات <span class="nav-count" id="navCount">0</span></a>
+        <a class="nav-link" href="#doctor-dashboard" data-view="doctor-dashboard">لوحة الطبيب</a>
+      </nav>
+      <a class="top-action" href="#booking" data-scroll-booking>احجز موعدًا <span>↗</span></a>
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="view active" id="home" data-section="home">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse"></span> رعايتك الصحية، أقرب إليك</div>
+            <h1>خطوتك الأولى<br>نحو <em>صحة أفضل.</em></h1>
+            <p class="hero-text">أخبرنا بما تشعر به، وسنساعدك في الوصول إلى الطبيب المناسب، في الوقت والمكان الملائمين لك.</p>
+            <a class="primary-button" href="#booking" data-scroll-booking>ابحث عن طبيبك <span class="arrow">←</span></a>
+            <div class="hero-note"><span class="note-icon">✳</span><span>رعاية أسهل، وقرار مطمئن</span></div>
+          </div>
+          <div class="hero-art" aria-label="رسم توضيحي لطبيب">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="art-chip chip-top"><span class="chip-check">✓</span><span><b>رعاية موثوقة</b><small>اختيار يناسب حالتك</small></span></div>
+            <div class="doctor-illustration"><div class="doctor-shadow"></div><div class="doctor-body"><div class="coat-left"></div><div class="coat-right"></div><div class="shirt"></div><div class="stethoscope"><i></i></div></div><div class="doctor-neck"></div><div class="doctor-face"><div class="hair"></div><i class="eye eye-a"></i><i class="eye eye-b"></i><span class="smile"></span></div><div class="doctor-ear"></div><div class="doctor-hair-back"></div></div>
+            <div class="art-chip chip-bottom"><span class="clock-icon">◷</span><span><b>مواعيد واضحة</b><small>اختر الوقت المناسب</small></span></div>
+            <span class="sparkle sparkle-a">✦</span><span class="sparkle sparkle-b">✳</span>
+          </div>
+        </div>
+        <section class="booking-panel" id="booking">
+          <div class="panel-heading"><div><span class="section-kicker">ابدأ من هنا</span><h2>اعثر على الرعاية المناسبة</h2><p>أدخل بياناتك وابحث عن الطبيب المتخصص، دون إنشاء حساب.</p></div><span class="step-badge">01 <i>/ 02</i></span></div>
+                    <form id="searchForm" class="search-form">
+            <label class="field"><span>الاسم</span><span class="input-wrap"><input id="firstName" name="firstName" required minlength="2" placeholder="اسمك الأول" autocomplete="given-name"></span></label>
+            <label class="field"><span>اللقب</span><span class="input-wrap"><input id="lastName" name="lastName" required minlength="2" placeholder="لقبك" autocomplete="family-name"></span></label>
+            <label class="field illness-field"><span>نوع المرض أو التخصص</span><span class="input-wrap"><span class="field-icon">✚</span><input name="condition" required list="specialties" placeholder="مثال: القلب، العظام..." autocomplete="off"><datalist id="specialties"><option value="القلب"><option value="الجلدية"><option value="الأطفال"><option value="العظام"><option value="العيون"><option value="الأسنان"><option value="الأنف والأذن والحنجرة"><option value="الطب العام"></datalist></span></label>
+            <button class="submit-button" type="submit">اعرض الأطباء <span>←</span></button>
+          </form>
+          <div class="privacy-note"><span>◇</span> يُرسل طلبك إلى الطبيب المختار ويظهر في صندوقه الخاص بعد تسجيل الدخول.</div>
+        </section>
+        <section class="results-section hidden" id="resultsSection"><div class="results-title"><div><span class="section-kicker">خيارات تناسبك</span><h2 id="resultsHeading">الأطباء المتخصصون</h2></div><span class="result-count" id="resultCount">0 أطباء</span></div><div class="doctor-grid" id="doctorResults"></div><div class="no-results hidden" id="noResults"><span>⌕</span><h3>لم نعثر على تخصص مطابق</h3><p>جرّب كتابة اسم تخصص آخر أو راجع قائمة الأطباء التي أضفتها.</p></div></section>
+        <footer class="footer"><span>© 2026 موعد</span><span>خطوة صغيرة، واهتمام أكبر بصحتك</span><a href="#doctors" data-view="doctors">إدارة قائمة الأطباء <span>↗</span></a></footer>
+      </section>
+
+      <section class="view subpage" id="doctors" data-section="doctors">
+        <div class="subpage-head"><span class="eyebrow"><span class="pulse"></span> دليلك الصحي</span><h1>الأطباء <em>والتخصصات.</em></h1><p>تعرّف على الأطباء المتاحين في قائمتك وتفاصيل عياداتهم.</p></div>
+        <div class="results-title"><div><span class="section-kicker">دليل الأطباء</span><h2>كل الأطباء</h2></div><span class="result-count" id="allDoctorCount"></span></div><div class="doctor-grid" id="allDoctors"></div>
+        <div class="manage-note"><span>✳</span><p>تُدار بيانات الأطباء من ملف <b>doctors.json</b>. أعد تشغيل الخادم بعد تعديل القائمة.</p></div>
+        <footer class="footer"><span>© 2026 موعد</span><a href="#home" data-view="home">العودة للرئيسية <span>↗</span></a></footer>
+      </section>
+
+      <section class="view subpage" id="appointments" data-section="appointments">
+        <div class="subpage-head"><span class="eyebrow"><span class="pulse"></span> طلباتي</span><h1>طلبات <em>المواعيد.</em></h1><p>تظهر هنا الطلبات التي أرسلتها من هذا المتصفح فقط.</p></div>
+        <div class="results-title"><div><span class="section-kicker">قائمة طلباتي</span><h2>طلبات الحجز</h2></div><span class="result-count" id="appointmentCount">0 طلبات</span><button class="refresh-requests" id="refreshPatientRequests" type="button">تحديث ↻</button></div>
+        <div class="appointment-list" id="appointmentList"></div><div class="empty-state hidden" id="emptyAppointments"><div class="empty-icon">◷</div><h3>لا توجد طلبات حتى الآن</h3><p>ستظهر الطلبات الجديدة هنا.</p><a class="primary-button" href="#home" data-view="home">ابحث عن طبيب <span class="arrow">←</span></a></div>
+        <div class="manage-note"><span>ⓘ</span><p>تعرض هذه الصفحة الطلبات المرسلة من هذا المتصفح. ويطّلع كل طبيب على طلباته فقط بعد تسجيل الدخول.</p></div>
+        <footer class="footer"><span>© 2026 موعد</span><a href="#home" data-view="home">العودة للرئيسية <span>↗</span></a></footer>
+      </section>
+
+      <section class="view subpage" id="doctor-dashboard" data-section="doctor-dashboard">
+        <div class="subpage-head"><span class="eyebrow"><span class="pulse"></span> مساحة الطبيب</span><h1>طلبات <em>المرضى.</em></h1><p>سجّل الدخول بكلمة المرور الخاصة بك لمراجعة الطلبات المرسلة إليك.</p></div>
+        <div class="doctor-gate" id="doctorGate"><div class="gate-visual"><span class="gate-icon">✚</span><span class="gate-orbit"></span><span class="gate-sparkle">✦</span></div><div class="gate-content"><span class="section-kicker">مساحة آمنة وخاصة</span><h2>مرحبًا بعودتك</h2><p class="gate-caption">أدخل بياناتك للوصول إلى صندوق طلباتك.</p><label for="doctorSelect">الطبيب</label><select id="doctorSelect" aria-label="اختر الطبيب"></select><label for="doctorPin">كلمة المرور</label><div class="doctor-gate-row"><input id="doctorPin" type="password" autocomplete="current-password" placeholder="كلمة المرور الخاصة بك"><button id="doctorLogin" class="submit-button" type="button">دخول <span>←</span></button></div><p id="doctorLoginMessage" role="status">تُسلّم كلمة مرور مستقلة لكل طبيب عند تشغيل النظام أول مرة.</p></div></div><div id="doctorPortal" hidden><div class="doctor-inbox-tools"><strong id="loggedDoctorName"></strong><button class="refresh-requests" id="logoutDoctor" type="button">تسجيل الخروج</button><button class="refresh-requests" id="refreshRequests" type="button">تحديث الطلبات ↻</button></div>
+        <div class="results-title"><div><span class="section-kicker">صندوق الوارد</span><h2 id="inboxTitle">الطلبات الواردة</h2></div><span class="result-count" id="inboxCount">0 طلبات</span></div>
+        <div class="appointment-list" id="doctorInbox"></div><div class="empty-state" id="emptyInbox"><div class="empty-icon">◷</div><h3>لا توجد طلبات لهذا الطبيب</h3><p>ستظهر هنا الطلبات التي يرسلها المرضى من صفحة الحجز.</p></div>
+        <div class="manage-note"><span>ⓘ</span><p>تعرض هذه اللوحة الطلبات المحفوظة على الخادم المشترك. تبقى نافذة الخادم مفتوحة لاستقبال الطلبات.</p></div>
+        </div>
+        <footer class="footer"><span>© 2026 موعد</span><a href="#home" data-view="home">العودة للرئيسية <span>↗</span></a></footer>
+      </section>
+    </main>
+  </div>
+<dialog class="accept-dialog" id="acceptDialog" aria-labelledby="acceptTitle">
+    <div class="modal-clock" aria-hidden="true"><span>◷</span><i></i><i></i></div>
+    <form id="acceptForm" class="accept-form">
+      <span class="section-kicker">تأكيد الموعد</span>
+      <h2 id="acceptTitle">حدد وقت زيارة المريض</h2>
+      <p>المريض: <strong id="acceptRequestName"></strong></p>
+      <input type="hidden" id="acceptRequestId">
+      <label for="visitTime">وقت الحضور</label>
+      <input id="visitTime" name="visitTime" type="time" required>
+      <div class="dialog-actions"><button class="decline-request" id="cancelAccept" type="button">إلغاء</button><button class="accept-request" type="submit">تأكيد وقبول الطلب</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js?v=doctor-passwords-20261109"></script>
+</body>
+</html>
+
